@@ -1,4 +1,4 @@
-<p-table [columns]="cols" [value]="cars1" sortField="year">
+<p-table [columns]="cols" [value]="cars1" sortMode="multiple" [multiSortMeta]="multiSortMeta">
   <ng-template pTemplate="header" let-columns>
     <tr>
       <th *ngFor="let col of columns" [pSortableColumn]="col.field">

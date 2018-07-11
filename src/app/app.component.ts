@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
 
   cols: any[];
 
+  multiSortMeta = [];
+
   constructor(private carService: CarService) {
   }
 
@@ -31,6 +33,8 @@ export class AppComponent implements OnInit {
       {field: 'brand', header: 'Brand'},
       {field: 'color', header: 'Color'}
     ];
+    this.multiSortMeta.push({field: 'year', order: 1});
+    this.multiSortMeta.push({field: 'brand', order: -1});
   }
 
   customSort(event: SortEvent) {

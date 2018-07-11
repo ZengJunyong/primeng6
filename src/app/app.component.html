@@ -1,34 +1,16 @@
-<p-table [value]="sales">
-  <ng-template pTemplate="header">
+<p-table [columns]="cols" [value]="cars" [paginator]="true" [rows]="5">
+  <ng-template pTemplate="header" let-columns>
     <tr>
-      <th rowspan="3">Brand</th>
-      <th colspan="4">Sale Rate</th>
-    </tr>
-    <tr>
-      <th colspan="2">Sales</th>
-      <th colspan="2">Profits</th>
-    </tr>
-    <tr>
-      <th>Last Year</th>
-      <th>This Year</th>
-      <th>Last Year</th>
-      <th>This Year</th>
+      <th *ngFor="let col of columns">
+        {{col.header}}
+      </th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-sale>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
     <tr>
-      <td>{{sale.brand}}</td>
-      <td>{{sale.lastYearSale}}</td>
-      <td>{{sale.thisYearSale}}</td>
-      <td>{{sale.lastYearProfit}}</td>
-      <td>{{sale.thisYearProfit}}</td>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="footer">
-    <tr>
-      <td colspan="3">Totals</td>
-      <td>$506,202</td>
-      <td>$531,020</td>
+      <td *ngFor="let col of columns">
+        {{rowData[col.field]}}
+      </td>
     </tr>
   </ng-template>
 </p-table>

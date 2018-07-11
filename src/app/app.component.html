@@ -1,8 +1,9 @@
-<p-table [columns]="cols" [value]="cars" [paginator]="true" [rows]="5" [first]="first">
+<p-table [columns]="cols" [value]="cars1">
   <ng-template pTemplate="header" let-columns>
     <tr>
-      <th *ngFor="let col of columns">
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
         {{col.header}}
+        <p-sortIcon [field]="col.field"></p-sortIcon>
       </th>
     </tr>
   </ng-template>
@@ -12,12 +13,5 @@
         {{rowData[col.field]}}
       </td>
     </tr>
-  </ng-template>
-  <ng-template pTemplate="paginatorleft" let-state>
-    {{state.first}}
-    <button type="button" pButton icon="fa-refresh"></button>
-  </ng-template>
-  <ng-template pTemplate="paginatorright">
-    <button type="button" pButton icon="fa-cloud-upload"></button>
   </ng-template>
 </p-table>

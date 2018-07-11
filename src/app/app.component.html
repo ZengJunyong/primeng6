@@ -1,4 +1,4 @@
-<p-table [columns]="cols" [value]="cars" [paginator]="true" [rows]="5">
+<p-table [columns]="cols" [value]="cars" [paginator]="true" [rows]="5" [first]="first">
   <ng-template pTemplate="header" let-columns>
     <tr>
       <th *ngFor="let col of columns">
@@ -12,5 +12,12 @@
         {{rowData[col.field]}}
       </td>
     </tr>
+  </ng-template>
+  <ng-template pTemplate="paginatorleft" let-state>
+    {{state.first}}
+    <button type="button" pButton icon="fa-refresh"></button>
+  </ng-template>
+  <ng-template pTemplate="paginatorright">
+    <button type="button" pButton icon="fa-cloud-upload"></button>
   </ng-template>
 </p-table>

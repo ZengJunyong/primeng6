@@ -10,6 +10,7 @@ import {CarService} from './CarService';
 export class AppComponent implements OnInit {
   cars: Car[];
   cols: any[];
+  first = 0;
 
   constructor(private carService: CarService) { }
 
@@ -23,4 +24,9 @@ export class AppComponent implements OnInit {
       { field: 'color', header: 'Color' }
     ];
   }
+
+  reset() {
+    this.first = 0;
+  }
+
 }

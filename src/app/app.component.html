@@ -1,8 +1,9 @@
-<p-table [columns]="cols" [value]="cars1" sortMode="multiple" [multiSortMeta]="multiSortMeta">
+<p-table [columns]="cols" [value]="cars3" (sortFunction)="customSort($event)" [customSort]="true">
   <ng-template pTemplate="header" let-columns>
     <tr>
       <th *ngFor="let col of columns" [pSortableColumn]="col.field">
         {{col.header}}
+        <p-sortIcon [field]="col.field"></p-sortIcon>
       </th>
     </tr>
   </ng-template>

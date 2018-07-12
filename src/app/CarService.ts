@@ -17,4 +17,13 @@ export class CarService {
         return data;
       });
   }
+
+  getCarsMedium() {
+    return this.http.get('assets/cars-medium.json')
+      .toPromise()
+      .then(res => <Car[]> res.json().data)
+      .then(data => {
+        return data;
+      });
+  }
 }
